@@ -1,0 +1,693 @@
+import java.awt.event.*;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.awt.*;
+import javax.swing.*;
+import java.util.Random;
+
+	public class CombineGUI extends JFrame implements ActionListener{
+
+		private JFrame pframe;
+
+			
+		private JPanel Apanel, copanel,luggage, buttonp,Animal,Disability,Ticket1,aCombinePanel;
+	        
+		private JLabel FiName, MiName, LaName,DOB, paAge,paAddress,ddStreetNumber,ddHouseNumber,ddPostCode,ddProvince, PassportNumber, Email,CountryName,CountryCode, PhoneNumber,pphoneNumber,NumberOfLuggage,WeightOfLuggage,aquestion,typeofanimal,ageofanimal,VaccinationCardNumber,aDisability,bquestion,Issue,wheelchair,windowseat,extraseat,TicField;
+			
+		private JTextField FirName, MidName,LasName,Date,Month,Year,passAge, passAddress,ddaStreetNumber,ddaHouseNumber,ddaPostCode,ddaProvince,coPassportNumber,coEmail,coCountryName,coCountryCode, coPhoneNumber,copphoneNumber,aNumberOfLuggage,aWeightOfLuggage,atypeofanimal,aageofanimal,aVaccinationCardNumber,aIssue;
+		
+		private JButton aHome,aPrevious,aLogOut,NextButton,coNext,lnext,YesButton,aNextButton,dYesButton,eYesButton,fYesButton,gYesButton ,bNextButton,Booking;
+
+				
+			public CombineGUI() {
+
+				pframe=new JFrame("BRUNEL CITY AIRPORT");
+				pframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+				
+				Apanel=new JPanel();
+				Apanel.setName("Passanger Info");
+				Apanel .setLayout(new GridLayout(1,8));
+				copanel=new JPanel();
+				copanel.setName("Contact Details");
+				copanel.setLayout(new BoxLayout(copanel,BoxLayout.Y_AXIS));
+				luggage=new JPanel();
+				luggage.setLayout(new GridLayout(1,1));
+				Animal= new JPanel();
+				Animal.setLayout(new GridLayout(1,1));
+				Disability=new JPanel();
+				Disability.setLayout(new GridLayout(1,1));
+				Ticket1= new JPanel();
+				Ticket1.setLayout(new GridLayout(1,1));
+				
+				buttonp=new JPanel();
+				buttonp.setLayout(new GridLayout(1,3));
+				
+				aCombinePanel= new JPanel();
+				
+				aCombinePanel.setLayout(new BoxLayout(aCombinePanel,BoxLayout.Y_AXIS));
+				aCombinePanel.add(Apanel);
+				aCombinePanel.add(copanel);
+				aCombinePanel.add(luggage);
+				aCombinePanel.add(Animal);
+				aCombinePanel.add(Disability);
+				aCombinePanel.add(buttonp);
+			    aCombinePanel.add(Ticket1);
+				
+				
+				aHome=new JButton("Home");
+				aPrevious=new JButton("Previous");
+				aLogOut=new JButton("LogOut");
+
+				buttonp.add(aHome);
+				buttonp.add(aPrevious);
+				buttonp.add(aLogOut);
+
+				
+				
+				Dimension d= new Dimension(100,20);
+				
+		FiName=new JLabel("First Name");
+		FiName.setPreferredSize(new Dimension(100,30));
+		Apanel.add(FiName);
+
+		FirName=new JTextField(20);
+		FirName.setPreferredSize(new Dimension(200,30));
+		Apanel.add(FirName);
+
+
+
+		MiName=new JLabel("Middle Name");
+		MiName.setPreferredSize(new Dimension(100,30));
+		Apanel.add(MiName);
+
+		MidName=new JTextField(20);
+		MidName.setPreferredSize(new Dimension(200,30));
+		Apanel.add(MidName);
+
+		LaName=new JLabel("Last Name");
+		LaName.setPreferredSize(new Dimension(100,30));
+		Apanel.add(LaName);
+
+		LasName=new JTextField(20);
+		LasName.setPreferredSize(new Dimension(200,30));
+		Apanel.add(LasName);
+
+
+		
+		
+		
+		
+		
+		
+		paAge=new JLabel("Age");
+		paAge.setPreferredSize(new Dimension(100,30));
+		Apanel.add(paAge);
+
+		passAge=new JTextField(20);
+		passAge.setPreferredSize(new Dimension(200,30));
+		Apanel.add(passAge);
+		
+		
+		DOB=new JLabel("Date OF Birth");
+		DOB.setPreferredSize(new Dimension(100,30));
+		Apanel.add(DOB);
+
+	    Date=new JTextField("dd");
+		Date.setPreferredSize(new Dimension(200,30));
+		Apanel.add(Date);
+		
+
+	    Month=new JTextField("mm");
+		Month.setPreferredSize(new Dimension(200,30));
+		Apanel.add(Month);
+
+	    Year=new JTextField("yyyy");
+		Year.setPreferredSize(new Dimension(200,30));
+		Apanel.add(Year);
+	
+		
+		
+
+
+		paAddress=new JLabel("Address:");
+		paAddress.setPreferredSize(new Dimension(100,30));
+		Apanel.add(paAddress);
+
+		ddStreetNumber=new JLabel("Street Number");
+		FiName.setPreferredSize(new Dimension(100,30));
+		Apanel.add(ddStreetNumber);
+		ddaStreetNumber=new JTextField(20);
+		FiName.setPreferredSize(new Dimension(100,30));
+		Apanel.add(ddaStreetNumber);
+
+
+
+		ddHouseNumber=new JLabel("House Number");
+		ddHouseNumber.setPreferredSize(new Dimension(100,30));
+		Apanel.add(ddHouseNumber);
+		
+		ddaHouseNumber=new JTextField(20);
+		ddHouseNumber.setPreferredSize(new Dimension(200,30));
+		Apanel.add(ddaHouseNumber);
+
+		ddPostCode=new JLabel("Post Code");
+		ddPostCode.setPreferredSize(new Dimension(100,30));
+		Apanel.add(ddPostCode);
+		ddaPostCode=new JTextField(20);
+		ddaPostCode.setPreferredSize(new Dimension(200,30));
+		Apanel.add(ddaPostCode);
+
+		ddProvince=new JLabel("Province");
+		ddProvince.setPreferredSize(new Dimension(100,30));
+		Apanel.add(ddProvince);
+		
+		ddaProvince=new JTextField(20);
+		ddaProvince.setPreferredSize(new Dimension(200,30));
+		Apanel.add(ddaProvince);
+		
+		
+		
+		passAddress= new JTextField(20);
+		passAddress.setPreferredSize(new Dimension(200,30));
+		Apanel.add(passAddress);
+
+		
+		NextButton=new JButton("Next");
+		NextButton.setPreferredSize(new Dimension(100,50));
+		Apanel.add(NextButton);
+	    
+		
+		PassportNumber = new JLabel ("PassPort Number");
+		PassportNumber.setPreferredSize(new Dimension(30,30));
+		copanel.add(PassportNumber);
+		
+		coPassportNumber =new JTextField (20);
+		coPassportNumber.setPreferredSize(new Dimension(200,30));
+		copanel.add(coPassportNumber);
+		
+		Email =new JLabel ("Email") ;
+		FiName.setPreferredSize(new Dimension(100,30));
+		copanel.add(Email);
+		
+		coEmail=new JTextField(30);
+		coEmail.setPreferredSize(new Dimension(200,30));
+		copanel.add(coEmail);
+		
+		CountryName =new JLabel ("Country Name");
+		CountryName.setPreferredSize(new Dimension(100,30));
+		copanel.add(CountryName);
+		
+		coCountryName=new JTextField (20);
+		coCountryName.setPreferredSize(new Dimension(200,30));
+		copanel.add(coCountryName);
+		
+		
+		CountryCode =new JLabel ("Country code") ;
+		CountryCode.setPreferredSize(new Dimension(100,30));
+		copanel.add(CountryCode);
+		
+		coCountryCode =new JTextField (20);
+		coCountryCode.setPreferredSize(new Dimension(200,30));
+		copanel.add(coCountryCode);
+		
+		PhoneNumber =new JLabel ("Phone Number ");
+		PhoneNumber.setPreferredSize(new Dimension(100,30));
+		copanel.add(PhoneNumber);
+		
+		coPhoneNumber =new JTextField (20);
+		coPhoneNumber.setPreferredSize(new Dimension(200,30));
+		copanel.add(coPhoneNumber);
+		
+		
+		pphoneNumber =new JLabel ("Parrent Phone Number(below 18)");
+		pphoneNumber.setPreferredSize(new Dimension(100,30));
+		copanel.add(pphoneNumber);
+		
+		copphoneNumber=new JTextField(20);
+	    copphoneNumber.setPreferredSize(new Dimension(200,30));
+		copanel.add(copphoneNumber);
+		
+		
+		
+		
+		
+		coNext=new JButton("NextPage");
+	    coNext.setPreferredSize(new Dimension(100,50));
+		copanel.add(coNext);
+		
+		
+		
+		
+		
+		
+		
+		NumberOfLuggage = new JLabel("Number of Luggage");
+		NumberOfLuggage.setPreferredSize(new Dimension(100,30));
+		luggage.add(NumberOfLuggage);
+		
+		aNumberOfLuggage = new JTextField(20);
+		aNumberOfLuggage.setPreferredSize(new Dimension(200,30));
+		luggage.add(aNumberOfLuggage);
+		
+		
+		
+		WeightOfLuggage =  new JLabel("Weight of Luggage");
+		WeightOfLuggage.setPreferredSize(new Dimension(100,30));
+		luggage.add(WeightOfLuggage);
+		
+		aWeightOfLuggage= new JTextField(20);
+		aWeightOfLuggage.setPreferredSize(new Dimension(200,30));
+		luggage.add(aWeightOfLuggage);
+		
+		lnext=new JButton("Next");
+		luggage.add(lnext);
+		
+		aquestion=new JLabel("Do you Have Any Pet?");
+		
+		Animal.add(aquestion);
+		YesButton=new JButton("Select Option");
+		Animal.add(YesButton);
+		
+		typeofanimal=new JLabel("Type of Animal");
+		typeofanimal.setPreferredSize(new Dimension (100,30));
+		Animal.add(typeofanimal);
+		
+		atypeofanimal=new JTextField(20);
+		atypeofanimal.setPreferredSize(new Dimension (200,30));
+		Animal.add(atypeofanimal);
+
+	    ageofanimal=new JLabel("Age of Animal");
+		typeofanimal.setPreferredSize(new Dimension (100,30));
+		Animal.add(ageofanimal);
+		
+		aageofanimal=new JTextField(20);
+		typeofanimal.setPreferredSize(new Dimension (200,30));
+		Animal.add(aageofanimal);
+		
+
+	    VaccinationCardNumber=new JLabel("Vaccination Card Number");
+	    VaccinationCardNumber.setPreferredSize(new Dimension (100,30));
+		Animal.add( VaccinationCardNumber);
+		
+		 aVaccinationCardNumber=new JTextField(20);
+		 aVaccinationCardNumber.setPreferredSize(new Dimension (200,30));
+		Animal.add( aVaccinationCardNumber);
+		
+		
+		aNextButton=new JButton("Next");
+		Animal.add(aNextButton);
+		
+		
+
+		aDisability=new JLabel("DISABILITY:");
+		aDisability.setPreferredSize(new Dimension (100,30));
+		Disability.add(aDisability);
+		
+	    
+		bquestion=new JLabel("Do You Have Any Disability?");
+		bquestion.setPreferredSize(new Dimension (100,30));
+		Disability.add(bquestion);
+		
+		dYesButton=new JButton("Select Option");
+		Disability.add(dYesButton);
+		
+		 Issue=new JLabel("Discribe your problem:");
+			Issue.setPreferredSize(new Dimension (100,30));
+			Disability.add(Issue);
+			
+			aIssue=new JTextField(500);
+			aIssue.setPreferredSize(new Dimension (200,30));
+			Disability.add(aIssue);
+			
+			wheelchair=new JLabel("Do You need  wheel chair?");
+			wheelchair.setPreferredSize(new Dimension (100,30));
+			Disability.add(wheelchair);
+			
+			eYesButton=new JButton("Select Option");
+			Disability.add(eYesButton);
+			
+			windowseat=new JLabel("Do You pefer window seat?");
+			windowseat.setPreferredSize(new Dimension (100,30));
+			Disability.add(windowseat);
+			
+			fYesButton=new JButton("Select Option");
+			Disability.add(fYesButton);
+			
+			extraseat=new JLabel("Do You want extra seat?");
+			extraseat.setPreferredSize(new Dimension (100,30));
+			Disability.add(extraseat);
+			
+			gYesButton=new JButton("Select Option");
+			Disability.add(gYesButton);
+		
+			bNextButton=new JButton("Next");
+			Disability.add(bNextButton);
+			
+			
+			Booking = new JButton("Ticket Booking Number  ");
+			Ticket1.add(Booking);
+			TicField =new JLabel("Ticket Booking NUMBER:");
+			TicField.setPreferredSize(new Dimension (100,30));
+			Ticket1.add(TicField);
+			
+			
+		
+		pframe.setVisible(true);
+		pframe.setLocationRelativeTo(null);
+		pframe.setSize(600,600);
+		pframe.getContentPane().add(aCombinePanel);
+		pframe.pack();
+		pframe.validate();
+		
+		
+		
+		
+		ActionListener listener= new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e)
+			{
+				if(e.getSource()==aHome){
+					 JOptionPane.showMessageDialog(buttonp,"Go to Home Page");}
+				 
+					 else if (e.getSource()==aPrevious) {
+					  JOptionPane.showMessageDialog(buttonp,"Go to Previous Page");
+
+					 }
+					 else if(e.getSource()==aLogOut) {
+					  JOptionPane.showMessageDialog(buttonp,"Go LogOut");
+				  }
+			 
+			 if(e.getSource()==NextButton) {
+					String FName=FirName.getText().trim();
+					if(!FName.matches("^[A-Z][a-z]*")) {
+						JOptionPane.showMessageDialog(null,"First Name:Only First Letter  start with Capital.","Error",JOptionPane.ERROR_MESSAGE);
+						return;
+						}
+					FiName.setText("First Name"+FName);
+					System.out.println("First Name:"+FName);
+					String MName=MidName.getText().trim();
+					if(!MName.matches("^[A-Z][a-z]*")) {
+						JOptionPane.showMessageDialog(null,"Middle Name:Only First Letter start with Capital.","Error",JOptionPane.ERROR_MESSAGE);
+					return;
+					}
+					MiName.setText("middle Name:"+MName);
+					System.out.println("Middle Name:"+MName);
+				
+					String Lname=LasName.getText().trim();
+					if(!Lname.matches("^[A-Z][a-z]*")) {
+						JOptionPane.showMessageDialog(null,"Last Name:Only First Letter start with Capital.","Error",JOptionPane.ERROR_MESSAGE);
+					return;
+					}
+					LaName.setText("Last Name"+Lname);
+					System.out.println("Last Name:"+Lname);
+					
+					
+					
+				
+					String uffage=passAge.getText().trim();
+					int Age=Integer.parseInt (uffage);
+	                        if(Age<18) {
+						
+					String parNum=JOptionPane.showInputDialog("Please Enter your parents phone Number:");
+					copphoneNumber.setText(parNum);
+					
+					
+					}else {
+						System.out.println("NO need Parents Phone Number");
+					}
+					if(!uffage.matches("\\d+")) {
+						JOptionPane.showMessageDialog(null,"Age should be positive integer","Error",JOptionPane.ERROR_MESSAGE);
+					return;
+					}
+					paAge.setText("Age"+Age);
+					System.out.println("Age:"+Age);
+					
+					
+					
+					
+					String DateB=Date.getText().trim();
+					int DB=Integer.parseInt (DateB);
+					
+				if(!DateB.matches("^[1-9]|[12][0-9]|3[01]$")) {
+						JOptionPane.showMessageDialog(pframe,"Enter a VALID Date (1-31)");
+					return;
+					}
+				
+					
+					
+					String Datec=Month.getText().trim();
+					int DB2=Integer.parseInt (Datec);
+			
+					
+					 if(!Datec.matches("^[1-9]|1[012]$")) {
+						JOptionPane.showMessageDialog(pframe,"Enter valid month(1-12)");
+					return;
+					}
+			
+					
+					
+					
+					String Datey=Year.getText().trim();
+					int DB3=Integer.parseInt (Datey);
+					
+					 if(!Datey.matches("[0-9]*{4}")) {
+						
+					JOptionPane.showMessageDialog(pframe,"Enter Valid Year(4 digit)");
+				
+                    return;}
+					LocalDate dobb=LocalDate.of(DB, DB2, DB3);
+					System.out.println("Date of Birth:"+dobb);
+			 
+					
+					
+			 
+					
+					String address=passAddress.getText().trim();
+					paAddress.setText("Address"+address);
+					System.out.println("Address:"+address);
+			
+				
+				String sy= ddaStreetNumber.getText().trim();
+			    ddStreetNumber.setText("Street Number:"+sy);
+			    System.out.println("Street Number:"+sy);
+			    String ry=ddHouseNumber.getText().trim();
+			    
+			    
+			    ddaHouseNumber.setText("House Number:"+ry);
+			    System.out.println("House Number:"+ry);
+			    
+			    
+			    String gy=ddaPostCode. getText().trim();
+			    ddPostCode.setText("Post Code:"+gy);
+			    System.out.println("Post Code:"+gy);
+			   
+			    
+			    String uy=ddaProvince.getText().trim();
+			    ddProvince.setText("Province Name:"+uy);
+			    System.out.println("Province Name:"+uy);
+			    
+			    
+				
+			}
+				
+				else if(e.getSource()==coNext){
+					String pa= coPassportNumber.getText().trim() ;
+					if(!pa.matches("[A-Za-z0-9]*")) {
+						JOptionPane.showMessageDialog(null,"Passport Number can not be special charecter.","Error",JOptionPane.ERROR_MESSAGE);
+					return;
+					}
+					
+				    PassportNumber.setText("Passport Number:"+pa);
+				    System.out.println();
+				    String em=coEmail.getText().trim();
+				    if(!em.matches("^[a-zA-Z0-9\\_\\-\\.]+@[a-zA-Z]+\\.[a-zA-Z]{2,3}$")) {
+				    	JOptionPane.showMessageDialog(null,"please use regular Syntax Email.","Error",JOptionPane.ERROR_MESSAGE);
+				    return;
+				    }	
+				    Email.setText("Email:"+em);
+				    System.out.println("Email:"+em);
+				    
+				    String CNme=coCountryName.getText().trim();
+				    if(!CNme.matches("^[A-z]*")) {
+				    JOptionPane.showMessageDialog(null,"plese start Capital Letter","Error",JOptionPane.ERROR_MESSAGE);	
+				    return;	
+				    }
+				    CountryName.setText("Country Name:"+CNme);
+				    System.out.println("Country Name:"+CNme);
+				    
+				    String cco=coCountryCode.getText().trim();
+				    int ccod=Integer .parseInt(cco);
+				    if(!cco.matches("^[0]{2}[1-9]{2}")) {
+				    	JOptionPane.showMessageDialog(null,"Country Code Start with 00","Error",JOptionPane.ERROR_MESSAGE);
+				    return;
+				    }
+				    CountryCode.setText("Country Code:"+ccod);
+				    System.out.println("Country Code:"+ccod);
+
+				    String cPN=coPhoneNumber.getText().trim();
+				    if(!cco.matches("")) {
+				    	JOptionPane.showMessageDialog(null,"Do not USe (-) in your phone number" ,"Error",JOptionPane.ERROR_MESSAGE);
+				    return;
+				    }
+				    int Pho=Integer.parseInt(cPN);
+				    
+				    PhoneNumber.setText("Phone Number:"+Pho);
+				    System.out.println("Phone Number:"+Pho);
+				    
+
+				    String parNum=copphoneNumber.getText().trim();
+				    int Ph=Integer.parseInt(parNum);
+				    pphoneNumber.setText("ParentPhone Number:"+Ph);
+				    System.out.println("Parent Phone Number:"+Ph);			    
+				    coNext=new JButton("NextPage");
+				    coNext.setPreferredSize(new Dimension(100,50));
+					copanel.add(coNext);
+				}
+			 
+			if(e.getSource()==lnext) {
+		String Numl=aNumberOfLuggage.getText().trim();
+		int lu=Integer.parseInt (Numl);
+		if(!Numl.matches("\\d+")) {
+			JOptionPane.showMessageDialog(null,"Number of Luggage should be positive integer","Error",JOptionPane.ERROR_MESSAGE);
+		return;
+		}
+		NumberOfLuggage.setText("Number of Luggage:"+lu);
+		System.out.println("Number of Luggage:"+lu);
+		
+			String Numw=aWeightOfLuggage.getText().trim();
+			double we=Double.parseDouble (Numw);
+			if(!Numw.matches("[0-9]+\\.+[0-9]^[kg]")) {
+				JOptionPane.showMessageDialog(null,"Weight of Luggage should be double And Please add Unit kg","Error",JOptionPane.ERROR_MESSAGE);
+			return;
+			}
+			WeightOfLuggage.setText("Weight of Luggage:"+we);
+			
+			System.out.println("Weight of Luggage:"+we);
+			
+			
+				}
+			
+			if(e.getSource()==YesButton) {
+				
+				int responce=JOptionPane.showOptionDialog(pframe,"Do you have a pet?","Pet Question",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+			
+			if(responce==JOptionPane.YES_OPTION) {
+				System.out.println("Have  a pet:User CHOOSE YES");
+				String type=atypeofanimal.getText().trim();
+				typeofanimal.setText("Name of Type"+type);
+				System.out.println("Name of Type:"+type);
+				
+				String aniage=aageofanimal.getText().trim();
+				int aniage1=Integer.parseInt (aniage);
+				if(!aniage.matches("\\d+")) {
+					JOptionPane.showMessageDialog(null,"Age should be positive integer","Error",JOptionPane.ERROR_MESSAGE);
+				return;
+				}
+				ageofanimal.setText("Name of Type"+aniage1);
+				System.out.println("age of animal:"+aniage1);
+			    
+				String vaccin=aVaccinationCardNumber.getText().trim();
+				VaccinationCardNumber.setText("Vaccination Number"+vaccin);
+				System.out.println("Vaccination Number:"+vaccin);
+			}
+			if(responce==JOptionPane.NO_OPTION) {
+				System.out.println("Have A Pet:User CHOOSE NO");
+			}
+			}
+			
+			
+			
+			if(e.getSource()==dYesButton) {
+				
+			
+				
+			int responce2=JOptionPane.showOptionDialog(pframe,"Do you have any Disability?","Disability Question",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+			if(responce2==JOptionPane.YES_OPTION) {
+				System.out.println("Disability:User CHOOSE YES");
+				
+				String Iss=aIssue.getText();
+			
+				if(!Iss.matches("[A-Za-z0-9]*{500}")) {
+					JOptionPane.showMessageDialog(null,"Only 500 words","Error",JOptionPane.ERROR_MESSAGE);
+				return;
+				}
+				
+				Issue.setText("Describe Disability:"+Iss);
+				System.out.println("Describe Disability:"+Iss);
+				
+				
+			
+				
+				
+				
+			}
+			if(responce2==JOptionPane.NO_OPTION) {
+				System.out.println("Disability :User CHOOSE NO");
+			}
+			}
+			if(e.getSource()==eYesButton) {
+			int responce3=JOptionPane.showOptionDialog(pframe,"Do You need  wheel chair?","wheelchair Question",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+			if(responce3==JOptionPane.YES_OPTION) {
+				System.out.println("Wheel Chair:User CHOOSE YES");}
+			
+			
+			if(responce3==JOptionPane.NO_OPTION) {
+				System.out.println("Whell Chair:User CHOOSE NO");}
+			}
+			if(e.getSource()==fYesButton) {
+			int responce4=JOptionPane.showOptionDialog(pframe,"Do You pefer window seat?","Window Seat Question",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+			if(responce4==JOptionPane.YES_OPTION) {
+				System.out.println("Window Seat:User CHOOSE YES");}
+			
+			if(responce4==JOptionPane.NO_OPTION) {
+				System.out.println("Window Seat:User CHOOSE NO");}
+			}
+			if(e.getSource()==gYesButton) {
+			int responce5=JOptionPane.showOptionDialog(pframe,"Do You want extra seat?","Extra seat Question",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+			if(responce5==JOptionPane.YES_OPTION) {
+				System.out.println("Extra Seat:User CHOOSE YES");}
+			
+			if(responce5==JOptionPane.NO_OPTION) {
+				System.out.println("ExtraSeat:User CHOOSE NO");}
+			}
+			
+			if(e.getSource()==Booking) {
+				Random Tic= new Random();
+				int g=Tic.nextInt(90000000)+10000000;
+			    
+				TicField.setText("Booking Number:"+g);
+				System.out.println("Booking Number:"+g);
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			}};
+
+				    NextButton.addActionListener(listener);
+					coNext.addActionListener(listener);
+					YesButton.addActionListener(listener);
+					aNextButton.addActionListener(listener);
+					dYesButton.addActionListener(listener);
+					eYesButton.addActionListener(listener);
+					fYesButton.addActionListener(listener);
+					gYesButton.addActionListener(listener);
+				    bNextButton.addActionListener(listener);
+				    Booking.addActionListener(listener);
+					aHome.addActionListener(listener);
+					aPrevious.addActionListener(listener);
+					aLogOut.addActionListener(listener);
+					lnext.addActionListener(listener);
+					
+			}
+				public static void main(String[]args) {
+				 new CombineGUI();
+				 
+				}}
+			
